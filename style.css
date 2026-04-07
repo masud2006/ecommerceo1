@@ -1,0 +1,514 @@
+
+/* ===== BASE & RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+    background-color: #ffcff5;
+    color: #1e1a1d;
+    line-height: 1.4;
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ===== HEADER / STICKY NAV ===== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid #f0e1e6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #d45b7a, #b13e5c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+    position: relative;
+    color: #2c2529;
+}
+
+.nav-links a:hover {
+    color: #d45b7a;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d45b7a;
+    transition: width 0.2s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(120deg, #fdf2f5 0%, #fbe9ef 100%);
+    padding: 5rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2d1c22;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #5a4a51;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #d45b7a;
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(212, 91, 122, 0.2);
+}
+
+.btn-primary:hover {
+    background: #bc4a68;
+    transform: translateY(-2px);
+}
+
+/* Category sections */
+.category-section {
+    padding: 4rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d1c22;
+    letter-spacing: -0.3px;
+}
+
+.section-header p {
+    color: #9b7b87;
+    margin-top: 0.5rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Product Cards */
+.product-card {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+    cursor: pointer;
+    border: 1px solid #f5e6ec;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 36px -12px rgba(212, 91, 122, 0.2);
+    border-color: #f0cdda;
+}
+
+.product-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    background: #f9f0f4;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.02);
+}
+
+.product-info {
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.product-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    color: #2d1c22;
+}
+
+.product-price {
+    color: #d45b7a;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.order-btn {
+    background: transparent;
+    border: 1.5px solid #d45b7a;
+    color: #d45b7a;
+    padding: 0.6rem 1rem;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.order-btn:hover {
+    background: #d45b7a;
+    color: white;
+}
+
+.view-all-wrapper {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn-view-all {
+    background: none;
+    border: none;
+    color: #b84c6b;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+}
+
+.btn-view-all:hover {
+    color: #962b4b;
+    background: #fef2f6;
+}
+
+/* Payment Section with authentic logos */
+.payment-section {
+    background: #fff7f9;
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid #f3e2e8;
+    border-bottom: 1px solid #f3e2e8;
+}
+
+.payment-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #2d1c22;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.payment-card {
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f5e0e7;
+    position: relative;
+}
+
+.payment-card.bkash .logo-badge { background: #e2136e; color: white; border-radius: 20px; padding: 2px 8px; font-size: 12px; }
+.payment-card.nagad .logo-badge { background: #ff6600; color: white; border-radius: 20px; padding: 2px 8px; }
+.payment-card.rocket .logo-badge { background: #1e2a5e; color: white; border-radius: 20px; padding: 2px 8px; }
+.payment-card.visa .logo-badge { background: #1a1f71; color: white; border-radius: 20px; padding: 2px 8px; }
+
+.payment-icon {
+    font-size: 1.8rem;
+}
+
+.payment-note {
+    font-size: 0.85rem;
+    color: #7c626e;
+    margin-top: 1rem;
+}
+
+/* Contact */
+.contact-section {
+    padding: 3rem 0;
+    text-align: center;
+    background: #fefafc;
+}
+
+.contact-section h3 {
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+    color: #2d1c22;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.contact-info span {
+    background: #fef2f6;
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+}
+
+.social-links a {
+    margin: 0 0.8rem;
+    color: #b84c6b;
+    font-weight: 500;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background: #1e161a;
+    color: #e4cdd6;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #25D366;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 60px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1100;
+    transition: transform 0.2s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.02);
+    background-color: #20b859;
+}
+
+.whatsapp-icon {
+    font-size: 1.6rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    max-width: 650px;
+    width: 90%;
+    border-radius: 32px;
+    position: relative;
+    padding: 1.5rem;
+    animation: modalFade 0.2s;
+}
+
+.close-modal {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #9e7c8a;
+}
+
+.modal-product-detail {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.modal-product-detail img {
+    flex: 1;
+    min-width: 180px;
+    border-radius: 24px;
+    object-fit: cover;
+    background: #f7eef2;
+}
+
+.modal-info {
+    flex: 2;
+}
+
+.modal-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #d45b7a;
+    margin: 0.5rem 0;
+}
+
+.modal-options, .quantity-selector {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.modal-options select {
+    padding: 0.6rem 1rem;
+    border-radius: 40px;
+    border: 1px solid #e2cdd6;
+    background: white;
+    font-weight: 500;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #faf1f5;
+    padding: 0.3rem 0.8rem;
+    border-radius: 60px;
+}
+
+.qty-control button {
+    background: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+#qtyInput {
+    width: 55px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.modal-total {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    border-top: 1px dashed #efdce3;
+    padding-top: 0.8rem;
+}
+
+.btn-place-order {
+    background: #d45b7a;
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    width: 100%;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-place-order:hover {
+    background: #b84262;
+}
+
+@keyframes modalFade {
+    from { opacity: 0; transform: scale(0.96);}
+    to { opacity: 1; transform: scale(1);}
+}

@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="US Fashion - premium fabrics, cosmetics, and inner garments with effortless style.">
+    <title>US Fashion | Modern Elegance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">US FASHION</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#fabrics" class="nav-link">Fabrics</a></li>
+                <li><a href="#cosmetics" class="nav-link">Cosmetics</a></li>
+                <li><a href="#inner-garments" class="nav-link">Inner Garments</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Elevate Everyday Style</h1>
+                <p>Discover premium fabrics, clean beauty, and luxury innerwear — curated for the modern woman.</p>
+                <a href="#fabrics" class="btn-primary">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- Categories Dynamic Sections (JS populates products) -->
+        <section id="fabrics" class="category-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Luxury Fabrics</h2>
+                    <p>Premium ladies' cloth materials for every silhouette</p>
+                </div>
+                <div class="products-grid" id="fabricsGrid"></div>
+                <div class="view-all-wrapper">
+                    <button class="btn-view-all" data-category="fabrics">View All Products →</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cosmetics" class="category-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Clean Cosmetics</h2>
+                    <p>Vegan & cruelty-free beauty essentials</p>
+                </div>
+                <div class="products-grid" id="cosmeticsGrid"></div>
+                <div class="view-all-wrapper">
+                    <button class="btn-view-all" data-category="cosmetics">View All Products →</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="inner-garments" class="category-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Inner Garments</h2>
+                    <p>Soft, seamless & comfortable everyday wear</p>
+                </div>
+                <div class="products-grid" id="innerGrid"></div>
+                <div class="view-all-wrapper">
+                    <button class="btn-view-all" data-category="inner">View All Products →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Methods Section (with authentic logos) -->
+        <section class="payment-section">
+            <div class="container">
+                <h3>Secure & Fast Payment</h3>
+                <div class="payment-methods">
+                    <div class="payment-card bkash">
+                        <div class="payment-icon">📱</div>
+                        <span>bKash</span>
+                        <div class="logo-badge">✔️</div>
+                    </div>
+                    <div class="payment-card nagad">
+                        <div class="payment-icon">📲</div>
+                        <span>Nagad</span>
+                        <div class="logo-badge">⚡</div>
+                    </div>
+                    <div class="payment-card rocket">
+                        <div class="payment-icon">🚀</div>
+                        <span>Rocket</span>
+                        <div class="logo-badge">💳</div>
+                    </div>
+                    <div class="payment-card visa">
+                        <div class="payment-icon">💳</div>
+                        <span>Visa</span>
+                        <div class="logo-badge">🔒</div>
+                    </div>
+                </div>
+                <p class="payment-note">100% encrypted transactions | Cash on delivery also available</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h3>Let's Connect</h3>
+                <p>Need styling advice? Reach out — we reply within hours.</p>
+                <div class="contact-info">
+                    <span>📞 +880 1234 567890</span>
+                    <span>✉️ hello@usfashion.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 US Fashion — Timeless elegance, modern comfort.</p>
+        <p>Designed & Developed by <a href="https://ventureit.tech/" target="_blank">Venture IT</a></p>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/8801234567890?text=Hi!%20I'm%20interested%20in%20your%20collection%20at%20US%20Fashion" 
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <div class="whatsapp-icon">💬</div>
+        <span>Chat with us</span>
+    </a>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-product-detail">
+                <img id="modalProductImg" src="" alt="Product">
+                <div class="modal-info">
+                    <h3 id="modalProductName"></h3>
+                    <p class="modal-price" id="modalProductPrice"></p>
+                    <div class="modal-options">
+                        <label>Size:</label>
+                        <select id="sizeSelect">
+                            <option value="S">S</option>
+                            <option value="M" selected>M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <label>Quantity:</label>
+                        <div class="qty-control">
+                            <button id="qtyMinus">-</button>
+                            <input type="number" id="qtyInput" value="1" min="1" readonly>
+                            <button id="qtyPlus">+</button>
+                        </div>
+                    </div>
+                    <div class="modal-total">Total: ৳<span id="modalTotal">0.00</span></div>
+                    <button id="placeOrderBtn" class="btn-place-order">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
